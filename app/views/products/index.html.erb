@@ -1,0 +1,8 @@
+<%= link_to "新建產品", new_product_path %>
+<% @products.each do |product| %>
+  <div>
+    id:<%= product.id %>
+    title:<%= product.title %>
+    text:<%= product.text %>
+  </div>
+<% end %>

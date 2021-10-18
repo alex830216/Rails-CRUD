@@ -4,3 +4,6 @@
 <div>
   comment:<%= comment.text %>
 </div>
+<div>
+  <%= link_to "刪除留言",comment_path(comment), method: :delete, data:{ confirm: "確定嗎?" } %>
+</div>

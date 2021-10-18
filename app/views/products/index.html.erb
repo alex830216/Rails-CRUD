@@ -4,5 +4,7 @@
     id:<%= product.id %>
     title:<%= product.title %>
     text:<%= product.text %>
+    <%= link_to "產品資訊",product_path(product) %>
+    <%= link_to "編輯產品",edit_product_path(product) %>
   </div>
 <% end %>

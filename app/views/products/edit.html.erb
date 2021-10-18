@@ -1,0 +1,30 @@
+<%= form_for @product, method: :patch do |f| %>
+  <% if @product.errors.any? %>
+    <h2>
+      <%= @product.errors.count %> 個錯誤無法存入
+    </h2>
+    <ul>
+      <% @product.errors.full_messages.each do |message| %>
+        <li>
+          <%= message %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+  <div>
+    <%= f.label :title %>
+  </div>
+  <div>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :text %>
+  </div>
+  <div>
+    <%= f.text_area :text %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
+<%= link_to "產品列表", products_path %>

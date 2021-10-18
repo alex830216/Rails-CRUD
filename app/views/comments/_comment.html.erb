@@ -5,5 +5,7 @@
   comment:<%= comment.text %>
 </div>
 <div>
-  <%= link_to "刪除留言",comment_path(comment), method: :delete, data:{ confirm: "確定嗎?" } %>
+  <%# 因為 nested route 的關係，product_comment_path 必須要包含 product id 跟 comment id 才能運作，.id 可省 %>
+  <%# https://stackoverflow.com/questions/43438749/link-to-destroy-comment-article-comment 解釋：第一則留言內的第三留言 & 用法：第二則留言 %>
+  <%= link_to "刪除留言", product_comment_path(@product, comment), method: :delete, data:{ confirm: "確定嗎?" } %>
 </div>

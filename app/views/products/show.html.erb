@@ -4,5 +4,15 @@
 <div>
   Text:<%= @product.text %>
 </div>
+<h2>
+  留言內容
+</h2>
+<%# Rendering Partial Collections / 魔術 render https://railsbook.tw/chapters/15-layout-render-and-view-helper.html %>
+<%= render @product.comments %>
+<h2>
+  新增留言
+</h2>
+<%= render "comments/form" %>
+
 <%= link_to "產品列表", products_path %>
 <%= link_to "編輯產品", edit_product_path(@product) %>

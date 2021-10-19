@@ -1,4 +1,7 @@
-<%= form_for([@product, @product.comments.build]) do |f| %>
+<%#  form_for([@article, @article.comments.new]): 因為 comment 路徑是包在 product 裡面，所以要給他 product id 跟新建的 comment，
+會產生後面的路徑 /articles/@article.id/comments (POST request) %>
+<%# 參考:https://stackoverflow.com/questions/54455301/rails-5-creating-comments-for-an-article-with-a-has-many-relationship-betw %>
+<%= form_for([@product, @product.comments.new]) do |f| %>
   <div>
     <%= f.label :commenter %>
   </div>

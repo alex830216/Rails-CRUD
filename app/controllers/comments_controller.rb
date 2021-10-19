@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   http_basic_authenticate_with name: "dhh", password: "secret", only: :destroy
-  
+
   def create
     @product = Product.find(params[:product_id])
     @comment = @product.comments.new(comment_params)
@@ -20,6 +20,6 @@ class CommentsController < ApplicationController
 
   private
   def comment_params
-    params.require(:comment).permit(:commenter, :text)      
+    params.require(:comment).permit(:commenter, :text, :status)      
   end
 end

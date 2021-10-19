@@ -1,11 +1,14 @@
+有 <%= Product.public_count %> 個公開產品
 <%= link_to "新建產品", new_product_path %>
 <% @products.each do |product| %>
-  <div>
-    id:<%= product.id %>
-    title:<%= product.title %>
-    text:<%= product.text %>
-    <%= link_to "產品資訊", product_path(product) %>
-    <%= link_to "編輯產品", edit_product_path(product) %>
-    <%= link_to "刪除產品", product_path(product), method: :delete, data:{ confirm: "你確定嗎?" } %>
-  </div>
+  <% unless product.archived? %>
+    <div>
+      id:<%= product.id %>
+      title:<%= product.title %>
+      text:<%= product.text %>
+      <%= link_to "產品資訊", product_path(product) %>
+      <%= link_to "編輯產品", edit_product_path(product) %>
+      <%= link_to "刪除產品", product_path(product), method: :delete, data:{ confirm: "你確定嗎?" } %>
+    </div>
+  <% end %>
 <% end %>

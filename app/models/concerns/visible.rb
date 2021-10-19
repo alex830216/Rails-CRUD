@@ -5,11 +5,12 @@ module Visible
 
   VALID_STATUSES = ["public", "private", "archived"]
 
+  # 引用模組後先做的事
   included do
     validates :status, inclusion: { in: VALID_STATUSES }
   end
 
-  # class_method 等同於 module ClassMethods
+  # class_methods 等同於 module ClassMethods
   class_methods do
     def public_count
       where(status: "public").count
